@@ -32,13 +32,14 @@ namespace Calculaora_Windows_Forms
         }
         private void SetarLabel()
         {
-            if(operacao != string.Empty)
+            if(!string.IsNullOrEmpty(operacao))
             {
                 labelOperacao.Text = Convert.ToString(valor1) + ' ' + operacao + ' ' + textResultado.Text;
             }
             else
             {
-                labelOperacao.Text = Convert.ToString(valor1);
+                if (valor1 != 0)
+                    labelOperacao.Text = Convert.ToString(valor1);
             }
             
         }
@@ -112,7 +113,7 @@ namespace Calculaora_Windows_Forms
                 default:
                     break;
             }
-            labelOperacao.Text += valor2;
+           // labelOperacao.Text += valor2;
             textResultado.Text = temp_valor.ToString();
 
             valor1 = 0;
